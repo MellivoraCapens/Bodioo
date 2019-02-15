@@ -34,10 +34,11 @@ public class CarController : MonoBehaviour
 
     static float currentHp = Mathf.Clamp(currentHp, 0.0f, maxHorsepower);
 
-    public static float rpm = Mathf.Clamp(rpm, 800, maxRpm);
+    public static float rpm = Mathf.Clamp(rpm, 800, 9000);
     public float differential=10;
     public float Torque=400;
     public int currentGear=0;
+
     public List<float> gearRatio;
     public float rGearRatiot=3.18f;
     public float turboRpm =4;

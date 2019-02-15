@@ -312,12 +312,6 @@ MonoBehaviour:
   turboRpm: 4
   turboPower: 1.5
   NitroPower: 1000
---- !u!1 &747634353 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 100014, guid: c09e93c94a3fa014382e6d5847aefc77,
-    type: 3}
-  m_PrefabInstance: {fileID: 817816142}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &817816142
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -339,7 +333,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 400030, guid: c09e93c94a3fa014382e6d5847aefc77, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 5.84
+      value: 4.07
       objectReference: {fileID: 0}
     - target: {fileID: 400030, guid: c09e93c94a3fa014382e6d5847aefc77, type: 3}
       propertyPath: m_LocalPosition.z
@@ -607,13 +601,13 @@ AudioSource:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 817816143}
-  m_Enabled: 0
+  m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: 2b9be05b0a886f147b9ac9a64d6a22fe, type: 3}
   m_PlayOnAwake: 1
   m_Volume: 1
-  m_Pitch: 1
+  m_Pitch: 0.4
   Loop: 1
   Mute: 0
   Spatialize: 0
@@ -705,33 +699,27 @@ MonoBehaviour:
   m_GameObject: {fileID: 817816143}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 51d16a1d438c89c468706fd13e32786d, type: 3}
+  m_Script: {fileID: 11500000, guid: 4a033bc5fa5538c408ab53ec54d63453, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_CarDriveType: 2
-  m_WheelColliders:
-  - {fileID: 891948315}
-  - {fileID: 1413336839}
-  - {fileID: 1983692822}
-  - {fileID: 1196443886}
-  m_WheelMeshes:
-  - {fileID: 2143520338}
-  - {fileID: 1736352245}
-  - {fileID: 747634353}
-  - {fileID: 1948635132}
-  m_CentreOfMassOffset: {x: 0, y: 0, z: 0}
-  m_MaximumSteerAngle: 35
-  m_SteerHelper: 1
-  m_TractionControl: 1
-  m_FullTorqueOverAllWheels: 1000
-  m_ReverseTorque: 1000
-  m_MaxHandbrakeTorque: 100
-  m_Downforce: 100
-  m_SpeedType: 1
-  m_Topspeed: 200
-  m_RevRangeBoundary: 1
-  m_SlipLimit: 1
-  m_BrakeTorque: 10000
+  differential: 10
+  Torque: 400
+  currentGear: 1
+  rpm: 800
+  maxSteerAngle: 35
+  speed: 0
+  CenterOfMass: {x: 0, y: -1.5, z: 0}
+  brakePower: 100000000
+  nitroPower: 10000
+  nitro: 1
+  frontLeftW: {fileID: 891948315}
+  frontRightW: {fileID: 1413336839}
+  backLeftW: {fileID: 1983692822}
+  backRightW: {fileID: 1196443886}
+  frontLeftT: {fileID: 1799852718}
+  frontRightT: {fileID: 333414408}
+  backLeftT: {fileID: 1692843670}
+  backRightT: {fileID: 824781375}
 --- !u!4 &824781375 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 400010, guid: c09e93c94a3fa014382e6d5847aefc77,
@@ -811,13 +799,13 @@ WheelCollider:
     m_ExtremumValue: 1
     m_AsymptoteSlip: 0.8
     m_AsymptoteValue: 0.5
-    m_Stiffness: 1
+    m_Stiffness: 1.5
   m_SidewaysFriction:
     m_ExtremumSlip: 0.2
     m_ExtremumValue: 1
     m_AsymptoteSlip: 0.5
     m_AsymptoteValue: 0.75
-    m_Stiffness: 2
+    m_Stiffness: 3
   m_Enabled: 1
 --- !u!1 &1196443885
 GameObject:
@@ -858,13 +846,13 @@ WheelCollider:
     m_ExtremumValue: 1
     m_AsymptoteSlip: 0.8
     m_AsymptoteValue: 0.5
-    m_Stiffness: 1
+    m_Stiffness: 1.5
   m_SidewaysFriction:
     m_ExtremumSlip: 0.2
     m_ExtremumValue: 1
     m_AsymptoteSlip: 0.5
     m_AsymptoteValue: 0.75
-    m_Stiffness: 2
+    m_Stiffness: 3
   m_Enabled: 1
 --- !u!4 &1196443887
 Transform:
@@ -953,13 +941,13 @@ WheelCollider:
     m_ExtremumValue: 1
     m_AsymptoteSlip: 0.8
     m_AsymptoteValue: 0.5
-    m_Stiffness: 1
+    m_Stiffness: 1.5
   m_SidewaysFriction:
     m_ExtremumSlip: 0.2
     m_ExtremumValue: 1
     m_AsymptoteSlip: 0.5
     m_AsymptoteValue: 0.75
-    m_Stiffness: 2
+    m_Stiffness: 3
   m_Enabled: 1
 --- !u!1001 &1566033006
 PrefabInstance:
@@ -5772,12 +5760,6 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 817816142}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &1736352245 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 100546, guid: c09e93c94a3fa014382e6d5847aefc77,
-    type: 3}
-  m_PrefabInstance: {fileID: 817816142}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1747982772 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 100714, guid: a783dd6eb532022469eaf6e3786a37d8,
@@ -5909,12 +5891,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a783dd6eb532022469eaf6e3786a37d8, type: 3}
---- !u!1 &1948635132 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 100010, guid: c09e93c94a3fa014382e6d5847aefc77,
-    type: 3}
-  m_PrefabInstance: {fileID: 817816142}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1983692820
 GameObject:
   m_ObjectHideFlags: 0
@@ -5968,13 +5944,13 @@ WheelCollider:
     m_ExtremumValue: 1
     m_AsymptoteSlip: 0.8
     m_AsymptoteValue: 0.5
-    m_Stiffness: 1
+    m_Stiffness: 1.5
   m_SidewaysFriction:
     m_ExtremumSlip: 0.2
     m_ExtremumValue: 1
     m_AsymptoteSlip: 0.5
     m_AsymptoteValue: 0.75
-    m_Stiffness: 2
+    m_Stiffness: 3
   m_Enabled: 1
 --- !u!1 &2009387672 stripped
 GameObject:
@@ -10694,9 +10670,3 @@ ParticleSystem:
         m_PostInfinity: 2
         m_RotationOrder: 4
     vectorLabel1_3: W
---- !u!1 &2143520338 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 100550, guid: c09e93c94a3fa014382e6d5847aefc77,
-    type: 3}
-  m_PrefabInstance: {fileID: 817816142}
-  m_PrefabAsset: {fileID: 0}
