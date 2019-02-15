@@ -312,6 +312,12 @@ MonoBehaviour:
   turboRpm: 4
   turboPower: 1.5
   NitroPower: 1000
+--- !u!1 &747634353 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 100014, guid: c09e93c94a3fa014382e6d5847aefc77,
+    type: 3}
+  m_PrefabInstance: {fileID: 817816142}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &817816142
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -601,7 +607,7 @@ AudioSource:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 817816143}
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: 2b9be05b0a886f147b9ac9a64d6a22fe, type: 3}
@@ -699,19 +705,33 @@ MonoBehaviour:
   m_GameObject: {fileID: 817816143}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5c73e278ff2d2bc4b9b7e87a18cf892a, type: 3}
+  m_Script: {fileID: 11500000, guid: 51d16a1d438c89c468706fd13e32786d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxMotorTorque: 0
-  maxSteeringAngle: 0
-  truck_Infos:
-  - leftWheel: {fileID: 0}
-    leftWheelMesh: {fileID: 0}
-    rightWheel: {fileID: 0}
-    rightWheelMesh: {fileID: 0}
-    motor: 0
-    steering: 0
-    reverseTurn: 0
+  m_CarDriveType: 2
+  m_WheelColliders:
+  - {fileID: 891948315}
+  - {fileID: 1413336839}
+  - {fileID: 1983692822}
+  - {fileID: 1196443886}
+  m_WheelMeshes:
+  - {fileID: 2143520338}
+  - {fileID: 1736352245}
+  - {fileID: 747634353}
+  - {fileID: 1948635132}
+  m_CentreOfMassOffset: {x: 0, y: 0, z: 0}
+  m_MaximumSteerAngle: 35
+  m_SteerHelper: 1
+  m_TractionControl: 1
+  m_FullTorqueOverAllWheels: 1000
+  m_ReverseTorque: 1000
+  m_MaxHandbrakeTorque: 100
+  m_Downforce: 100
+  m_SpeedType: 1
+  m_Topspeed: 200
+  m_RevRangeBoundary: 1
+  m_SlipLimit: 1
+  m_BrakeTorque: 10000
 --- !u!4 &824781375 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 400010, guid: c09e93c94a3fa014382e6d5847aefc77,
@@ -5752,6 +5772,12 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 817816142}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1736352245 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 100546, guid: c09e93c94a3fa014382e6d5847aefc77,
+    type: 3}
+  m_PrefabInstance: {fileID: 817816142}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1747982772 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 100714, guid: a783dd6eb532022469eaf6e3786a37d8,
@@ -5883,6 +5909,12 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a783dd6eb532022469eaf6e3786a37d8, type: 3}
+--- !u!1 &1948635132 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 100010, guid: c09e93c94a3fa014382e6d5847aefc77,
+    type: 3}
+  m_PrefabInstance: {fileID: 817816142}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1983692820
 GameObject:
   m_ObjectHideFlags: 0
@@ -10662,3 +10694,9 @@ ParticleSystem:
         m_PostInfinity: 2
         m_RotationOrder: 4
     vectorLabel1_3: W
+--- !u!1 &2143520338 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 100550, guid: c09e93c94a3fa014382e6d5847aefc77,
+    type: 3}
+  m_PrefabInstance: {fileID: 817816142}
+  m_PrefabAsset: {fileID: 0}
