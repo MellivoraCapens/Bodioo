@@ -4863,7 +4863,7 @@ WheelCollider:
     m_ExtremumValue: 1
     m_AsymptoteSlip: 0.8
     m_AsymptoteValue: 0.5
-    m_Stiffness: 1.5
+    m_Stiffness: 1
   m_SidewaysFriction:
     m_ExtremumSlip: 0.2
     m_ExtremumValue: 1
@@ -4943,6 +4943,7 @@ GameObject:
   - component: {fileID: 117693243}
   - component: {fileID: 117693245}
   - component: {fileID: 117693244}
+  - component: {fileID: 117693246}
   m_Layer: 0
   m_Name: Smoke (1)
   m_TagString: Untagged
@@ -9630,6 +9631,22 @@ ParticleSystem:
         m_PostInfinity: 2
         m_RotationOrder: 4
     vectorLabel1_3: W
+--- !u!54 &117693246
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 117693242}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 1
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
 --- !u!1 &122486996
 GameObject:
   m_ObjectHideFlags: 0
@@ -9656,7 +9673,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 122486996}
   m_LocalRotation: {x: -0.00000032782555, y: -0, z: 0.7071067, w: 0.70710695}
-  m_LocalPosition: {x: -5.783, y: -0.333, z: 2.996}
+  m_LocalPosition: {x: -5.783, y: -0.359, z: 2.996}
   m_LocalScale: {x: 0.5000005, y: 0.5000005, z: 0.5}
   m_Children: []
   m_Father: {fileID: 1369389555}
@@ -9733,7 +9750,7 @@ ParticleSystem:
   m_GameObject: {fileID: 122486996}
   serializedVersion: 6
   lengthInSec: 5
-  simulationSpeed: 1
+  simulationSpeed: 0.1
   stopAction: 0
   cullingMode: 0
   ringBufferMode: 0
@@ -9743,7 +9760,7 @@ ParticleSystem:
   playOnAwake: 1
   useUnscaledTime: 0
   autoRandomSeed: 1
-  useRigidbodyForVelocity: 1
+  useRigidbodyForVelocity: 0
   startDelay:
     serializedVersion: 2
     minMaxState: 0
@@ -9797,7 +9814,7 @@ ParticleSystem:
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
-  moveWithTransform: 0
+  moveWithTransform: 1
   moveWithCustomTransform: {fileID: 0}
   scalingMode: 1
   randomSeed: 0
@@ -9807,7 +9824,7 @@ ParticleSystem:
     startLifetime:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 5.65
+      scalar: 4
       minScalar: 5
       maxCurve:
         serializedVersion: 2
@@ -10557,7 +10574,7 @@ ParticleSystem:
     rateOverTime:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 10
+      scalar: 0
       minScalar: 10
       maxCurve:
         serializedVersion: 2
@@ -10610,7 +10627,7 @@ ParticleSystem:
     rateOverDistance:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 0
+      scalar: 100
       minScalar: 0
       maxCurve:
         serializedVersion: 2
@@ -19099,7 +19116,7 @@ WheelCollider:
     m_ExtremumValue: 1
     m_AsymptoteSlip: 0.8
     m_AsymptoteValue: 0.5
-    m_Stiffness: 1.5
+    m_Stiffness: 1
   m_SidewaysFriction:
     m_ExtremumSlip: 0.2
     m_ExtremumValue: 1
@@ -19922,7 +19939,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 491781755}
-  m_LocalRotation: {x: -6.123234e-17, y: 1, z: -6.123234e-17, w: -2.9478123e-15}
+  m_LocalRotation: {x: 0, y: 1, z: 0, w: 0}
   m_LocalPosition: {x: -1.09014, y: 0, z: 1.6690179}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -19931,7 +19948,7 @@ Transform:
   - {fileID: 491283275}
   m_Father: {fileID: 491283277}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0}
 --- !u!4 &491283037
 Transform:
   m_ObjectHideFlags: 0
@@ -20223,8 +20240,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 491781663}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -3.35, y: 1.34, z: 0.59}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalPosition: {x: -3.35, y: 1.67, z: 0.59}
+  m_LocalScale: {x: 1.2, y: 1, z: 1}
   m_Children:
   - {fileID: 491283057}
   - {fileID: 491283375}
@@ -20730,8 +20747,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 491781961}
-  m_LocalRotation: {x: -6.123234e-17, y: 1, z: -6.123234e-17, w: -4.28008e-15}
-  m_LocalPosition: {x: -1.09014, y: 0, z: -1.930982}
+  m_LocalRotation: {x: 0, y: 1, z: 0, w: 0}
+  m_LocalPosition: {x: -0.85, y: 0, z: -1.932}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 491283063}
@@ -20739,7 +20756,7 @@ Transform:
   - {fileID: 491283273}
   m_Father: {fileID: 491283277}
   m_RootOrder: 2
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0}
 --- !u!4 &491283371
 Transform:
   m_ObjectHideFlags: 0
@@ -21645,6 +21662,8 @@ GameObject:
   - component: {fileID: 491781668}
   - component: {fileID: 491781666}
   - component: {fileID: 491781664}
+  - component: {fileID: 491781672}
+  - component: {fileID: 491781674}
   m_Layer: 0
   m_Name: Evo
   m_TagString: Untagged
@@ -21697,8 +21716,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 2.5042372, y: 1.213218, z: 6.390847}
-  m_Center: {x: -0.07572651, y: 0.73020446, z: -0.43915892}
+  m_Size: {x: 2.5042372, y: 2.0055783, z: 6.390847}
+  m_Center: {x: -0.07572651, y: 0.3340243, z: -0.43915892}
 --- !u!1 &491781667
 GameObject:
   m_ObjectHideFlags: 0
@@ -21724,7 +21743,7 @@ AudioSource:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 491781663}
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: 316224186e8ae6543990a05f4dc13981, type: 3}
@@ -21838,7 +21857,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 491781663}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 01e4461c10ad3904088932866188b1b6, type: 3}
   m_Name: 
@@ -21847,9 +21866,9 @@ MonoBehaviour:
   Torque: 800
   currentGear: 0
   rpm: 800
-  maxSteerAngle: 30
+  maxSteerAngle: 35
   speed: 0
-  CenterOfMass: {x: 0, y: -1, z: 0}
+  CenterOfMass: {x: 0, y: -1.5, z: 0}
   brakePower: 100000000
   nitroPower: 1000000
   nitro: 1
@@ -21881,6 +21900,34 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!114 &491781672
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 491781663}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c9f085760b2ee754d9be25b032a7b9c0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  frontLeftW: {fileID: 71932275}
+  frontRightW: {fileID: 809853498}
+  backLeftW: {fileID: 356986628}
+  backRightW: {fileID: 678068931}
+  frontLeftT: {fileID: 491283373}
+  frontRightT: {fileID: 491283369}
+  backLeftT: {fileID: 491283039}
+  backRightT: {fileID: 491283035}
+  maxSteerAngle: 35
+  motorForce: 3000
+  centerOfMass: {x: 0, y: -1.5, z: 0}
+  gear: 0
+  brakeForce: 100000
+  nos1: {fileID: 1382354117}
+  nos2: {fileID: 1974626389}
+  temp: {fileID: 0}
 --- !u!1 &491781673
 GameObject:
   m_ObjectHideFlags: 0
@@ -21899,6 +21946,20 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!114 &491781674
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 491781663}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ce2912cc60aafe74496925dccf6a4961, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  respawnPoint: {x: -3, y: 2, z: 1}
+  rotation: {x: 0, y: 0, z: 0, w: 0}
 --- !u!1 &491781675
 GameObject:
   m_ObjectHideFlags: 0
@@ -28853,7 +28914,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 41240fd8f288ee84b81ab0b2536513bb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  objectToFollow: {fileID: 1294569526}
+  objectToFollow: {fileID: 491283071}
   offset: {x: 0, y: 3, z: 15}
   followSpeed: 10
   lookSpeed: 10
@@ -28982,13 +29043,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 678068929}
-  m_LocalRotation: {x: 0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 1, z: 0, w: 0}
   m_LocalPosition: {x: -1.229, y: -0.589, z: 1.435}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 2135690461}
   m_RootOrder: 3
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0}
 --- !u!146 &678068931
 WheelCollider:
   m_ObjectHideFlags: 0
@@ -29011,7 +29072,7 @@ WheelCollider:
     m_ExtremumValue: 1
     m_AsymptoteSlip: 0.8
     m_AsymptoteValue: 0.5
-    m_Stiffness: 1.5
+    m_Stiffness: 1
   m_SidewaysFriction:
     m_ExtremumSlip: 0.2
     m_ExtremumValue: 1
@@ -38581,13 +38642,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 809853496}
-  m_LocalRotation: {x: 0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 1, z: 0, w: 0}
   m_LocalPosition: {x: -1.229, y: -0.589, z: -2.202}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 2135690461}
   m_RootOrder: 1
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0}
 --- !u!146 &809853498
 WheelCollider:
   m_ObjectHideFlags: 0
@@ -38610,7 +38671,7 @@ WheelCollider:
     m_ExtremumValue: 1
     m_AsymptoteSlip: 0.8
     m_AsymptoteValue: 0.5
-    m_Stiffness: 1.5
+    m_Stiffness: 1
   m_SidewaysFriction:
     m_ExtremumSlip: 0.2
     m_ExtremumValue: 1
@@ -38780,6 +38841,18 @@ PrefabInstance:
     - target: {fileID: 400792, guid: 8287cf4bfed73fd4fb871b2a5befdf34, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 400792, guid: 8287cf4bfed73fd4fb871b2a5befdf34, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 400792, guid: 8287cf4bfed73fd4fb871b2a5befdf34, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 400792, guid: 8287cf4bfed73fd4fb871b2a5befdf34, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 2300010, guid: 8287cf4bfed73fd4fb871b2a5befdf34, type: 3}
       propertyPath: m_Materials.Array.data[0]
@@ -57529,7 +57602,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1294863382}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 01e4461c10ad3904088932866188b1b6, type: 3}
   m_Name: 
@@ -57579,7 +57652,7 @@ AudioSource:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1294863382}
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: 2b9be05b0a886f147b9ac9a64d6a22fe, type: 3}
@@ -65719,7 +65792,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &1382354115
 Transform:
   m_ObjectHideFlags: 0
@@ -65812,7 +65885,7 @@ ParticleSystem:
   ringBufferLoopRange: {x: 0, y: 1}
   looping: 1
   prewarm: 0
-  playOnAwake: 0
+  playOnAwake: 1
   useUnscaledTime: 0
   autoRandomSeed: 1
   useRigidbodyForVelocity: 1
@@ -65879,7 +65952,7 @@ ParticleSystem:
     startLifetime:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 1.14
+      scalar: 0.2
       minScalar: 5
       maxCurve:
         serializedVersion: 2
@@ -66424,7 +66497,7 @@ ParticleSystem:
     serializedVersion: 6
     enabled: 1
     type: 4
-    angle: 5
+    angle: 4.997571
     length: 5
     boxThickness: {x: 0, y: 0, z: 0}
     radiusThickness: 1
@@ -66629,7 +66702,7 @@ ParticleSystem:
     rateOverTime:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 10
+      scalar: 0
       minScalar: 10
       maxCurve:
         serializedVersion: 2
@@ -75651,7 +75724,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &1974626387
 Transform:
   m_ObjectHideFlags: 0
@@ -75744,7 +75817,7 @@ ParticleSystem:
   ringBufferLoopRange: {x: 0, y: 1}
   looping: 1
   prewarm: 0
-  playOnAwake: 0
+  playOnAwake: 1
   useUnscaledTime: 0
   autoRandomSeed: 1
   useRigidbodyForVelocity: 1
@@ -75811,7 +75884,7 @@ ParticleSystem:
     startLifetime:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 1.14
+      scalar: 0.5
       minScalar: 5
       maxCurve:
         serializedVersion: 2
@@ -76561,7 +76634,7 @@ ParticleSystem:
     rateOverTime:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 10
+      scalar: 0
       minScalar: 10
       maxCurve:
         serializedVersion: 2
@@ -76667,7 +76740,7 @@ ParticleSystem:
     m_BurstCount: 0
     m_Bursts: []
   SizeModule:
-    enabled: 1
+    enabled: 0
     curve:
       serializedVersion: 2
       minMaxState: 1
@@ -76827,7 +76900,7 @@ ParticleSystem:
         m_PreInfinity: 2
         m_PostInfinity: 2
         m_RotationOrder: 4
-    separateAxes: 0
+    separateAxes: 1
   RotationModule:
     enabled: 0
     x:
@@ -78804,7 +78877,7 @@ ParticleSystem:
         m_PostInfinity: 2
         m_RotationOrder: 4
   SizeBySpeedModule:
-    enabled: 0
+    enabled: 1
     curve:
       serializedVersion: 2
       minMaxState: 1

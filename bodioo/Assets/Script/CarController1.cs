@@ -82,27 +82,15 @@ public class CarController1 : MonoBehaviour
         else if(currentGear >0)
         {
 
-            if (m_verticalInput >= 0)
+            if (m_verticalInput > 0)
             {
-                if (Input.GetKeyDown(KeyCode.Z))
-                {
-                    nitro = nitroPower;
-                    nos1.SetActive(true);
-                    nos1.SetActive(true);
-                }   
-                if (Input.GetKeyUp(KeyCode.Z))
-                {
-                    nitro = 1;
-                    nos1.SetActive(false);
-                    nos2.SetActive(false);
-                }
-                  
+               
 
-                print(nitro);
-
+               
+                Nitro();
                     
-                    backLeftW.motorTorque = differential * -m_verticalInput * Torque * 100*nitro;
-                    backRightW.motorTorque = differential * -m_verticalInput * Torque * 100*nitro;
+                    backLeftW.motorTorque = differential * -m_verticalInput * Torque  *nitro;
+                    backRightW.motorTorque = differential * -m_verticalInput * Torque *nitro;
                     backLeftW.brakeTorque = 0;
                     backRightW.brakeTorque = 0;
                     frontLeftW.brakeTorque = 0;
@@ -127,7 +115,7 @@ public class CarController1 : MonoBehaviour
                 else
                {
                     friction = backLeftW.sidewaysFriction;
-                    friction.stiffness = 2;
+                    friction.stiffness = 3;
                     backLeftW.sidewaysFriction = friction;
                     backRightW.sidewaysFriction = friction;
                     frontLeftW.sidewaysFriction = friction;
@@ -190,8 +178,8 @@ public class CarController1 : MonoBehaviour
         Vector3 _pos = _transform.position;
         Quaternion _quat = _transform.rotation;
         _collider.GetWorldPose(out _pos, out _quat);
-
-        _transform.rotation = _quat;
+        
+        _transform.rotation= _quat;
     }
     public void gearSelection()
     {
@@ -233,11 +221,26 @@ public class CarController1 : MonoBehaviour
 
             amount = rb.velocity.magnitude - temp;
             temp = rb.velocity.magnitude;
-        rpm += amount*300;
+        rpm += amount*100;
         
        
 
 
+    }
+    public void Nitro()
+    {
+        if (Input.GetKeyDown(KeyCode.Z))
+        {
+            nitro = nitroPower;
+            nos1.SetActive(true);
+            nos1.SetActive(true);
+        }
+        if (Input.GetKeyUp(KeyCode.Z))
+        {
+            nitro = 1;
+            nos1.SetActive(false);
+            nos2.SetActive(false);
+        }
     }
 
 }
