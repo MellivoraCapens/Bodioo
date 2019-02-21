@@ -24,6 +24,7 @@ public class CarControllerMerdo : MonoBehaviour
     public ParticleSystem nos1, nos2;
     public ParticleSystem temp;
     private bool brake=false;
+
    
     private void Start()
     {
@@ -39,6 +40,7 @@ public class CarControllerMerdo : MonoBehaviour
         UpdateWheelPose();
         HandBrake();
         Nitro();
+        print(rb.velocity.magnitude*3.6f);
      
         
       
@@ -158,7 +160,7 @@ public class CarControllerMerdo : MonoBehaviour
         if (Input.GetKey(KeyCode.Space))
         {
             handbrake = true;
-            backRightW.brakeTorque = 10000.0f;
+          backRightW.brakeTorque = 10000.0f;
             backLeftW.brakeTorque = 1000.0f;
 
             friction = backLeftW.sidewaysFriction;
@@ -168,6 +170,11 @@ public class CarControllerMerdo : MonoBehaviour
             friction.stiffness = 0.8f;
             frontLeftW.sidewaysFriction = friction;
             frontRightW.sidewaysFriction = friction;
+           
+            backRightW.brakeTorque = motorForce; 
+            backLeftW.brakeTorque = motorForce;
+            backLeftW.motorTorque = 0;
+            backRightW.motorTorque = 0;
 
 
 
@@ -184,7 +191,11 @@ public class CarControllerMerdo : MonoBehaviour
             proccesTask();
             frontLeftW.sidewaysFriction = friction;
             frontRightW.sidewaysFriction = friction;
+            
+            backRightW.brakeTorque = 0;
+            backLeftW.brakeTorque = 0;
             handbrake = false;
+
 
         }
     }
