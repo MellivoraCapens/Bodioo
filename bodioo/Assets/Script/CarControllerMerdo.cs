@@ -24,12 +24,12 @@ public class CarControllerMerdo : MonoBehaviour
     public ParticleSystem nos1, nos2;
     public ParticleSystem temp;
     private bool brake=false;
-
+    
    
     private void Start()
     {
         rb = GetComponent<Rigidbody>();
-        rb.centerOfMass = centerOfMass;
+        rb.centerOfMass = centerOfMass; 
     }
 
     private void FixedUpdate()
@@ -37,13 +37,17 @@ public class CarControllerMerdo : MonoBehaviour
         GetInput();
         Steer();
         Accelerate();
-        UpdateWheelPose();
+       
         HandBrake();
         Nitro();
-        print(rb.velocity.magnitude*3.6f);
+        print(backLeftW.rpm);
      
         
       
+    }
+    private void Update()
+    {
+        WheelPose();
     }
 
     public void GetInput()
@@ -242,6 +246,17 @@ public class CarControllerMerdo : MonoBehaviour
 
 
         }
+    }
+    public void WheelPose()
+    {
+
+        backLeftT.Rotate(backLeftW.rpm / 60 * 360 * Time.deltaTime, 0, 0);
+        backRightT.Rotate(backRightW.rpm / 60 * 360 * Time.deltaTime, 0, 0);
+        frontRightT.Rotate(frontRightW.rpm / 60 * 360 * Time.deltaTime, 0, 0);
+        frontLeftT.Rotate(frontLeftW.rpm / 60 * 360 * Time.deltaTime, 0, 0);
+        frontLeftT.localEulerAngles = new Vector3(frontLeftT.localEulerAngles.x, frontLeftW.steerAngle - frontLeftT.localEulerAngles.z, frontLeftT.localEulerAngles.z);
+        frontRightT.localEulerAngles = new Vector3(frontRightT.localEulerAngles.x, 180 + (frontRightW.steerAngle - frontRightT.localEulerAngles.z), frontRightT.localEulerAngles.z);
+
     }
 }
 
