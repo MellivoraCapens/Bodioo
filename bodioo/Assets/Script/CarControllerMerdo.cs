@@ -24,12 +24,19 @@ public class CarControllerMerdo : MonoBehaviour
     public ParticleSystem nos1, nos2;
     public ParticleSystem temp;
     private bool brake=false;
+    private float speed;
+    public float decelarationSpeed = 30;
+    private bool ds = false;
+    private float delta;
+    public float topSpeed=150;
+    //private float rpmSpeed;
     
    
     private void Start()
     {
         rb = GetComponent<Rigidbody>();
-        rb.centerOfMass = centerOfMass; 
+        rb.centerOfMass = centerOfMass;
+        delta = Time.fixedDeltaTime;
     }
 
     private void FixedUpdate()
@@ -40,7 +47,7 @@ public class CarControllerMerdo : MonoBehaviour
        
         HandBrake();
         Nitro();
-        print(backLeftW.rpm);
+       
      
         
       
@@ -48,6 +55,10 @@ public class CarControllerMerdo : MonoBehaviour
     private void Update()
     {
         WheelPose();
+        speed = Mathf.Round( rb.velocity.magnitude*3.6f);
+       // rpmSpeed = 2 * 3.14f * backLeftW.radius * backLeftW.rpm * 60 / 1000;
+        print(speed);
+       
     }
 
     public void GetInput()
@@ -63,15 +74,32 @@ public class CarControllerMerdo : MonoBehaviour
 
         m_horizantalInput = Input.GetAxis("Horizontal");
 
-        print(m_verticalInput);
+        
     }
     public void Steer()
     {
+        
         m_steeringAngle = maxSteerAngle * m_horizantalInput;
-        frontLeftW.steerAngle = m_steeringAngle;
-        frontRightW.steerAngle = m_steeringAngle;
+        if (speed >= 70 && speed <150)
+        {
+           
+            frontLeftW.steerAngle = m_steeringAngle/1.5f;
+            frontRightW.steerAngle = m_steeringAngle/1.5f;
+            
+        }
+        if(speed  >= 150)
+        {
+            frontLeftW.steerAngle = m_steeringAngle/2;
+            frontRightW.steerAngle = m_steeringAngle/2;
+        }
 
+        else
+        {
+            frontLeftW.steerAngle = m_steeringAngle;
+            frontRightW.steerAngle = m_steeringAngle;
+        }
 
+       
     }
     public void Accelerate()
     {
@@ -128,10 +156,20 @@ public class CarControllerMerdo : MonoBehaviour
                 frontRightW.brakeTorque = 0;
                 brake = false;
             }
-            backLeftW.motorTorque = m_verticalInput * -motorForce;
-            frontLeftW.motorTorque = m_verticalInput * -motorForce;
-            backRightW.motorTorque = m_verticalInput * -motorForce;
-            frontRightW.motorTorque = m_verticalInput * -motorForce;
+            if (speed >= topSpeed)
+            {
+                backLeftW.motorTorque = 0;
+                frontLeftW.motorTorque = 0;
+                backRightW.motorTorque = 0;
+                frontRightW.motorTorque = 0;
+            }
+            else
+            {
+                backLeftW.motorTorque = m_verticalInput * -motorForce;
+                frontLeftW.motorTorque = m_verticalInput * -motorForce;
+                backRightW.motorTorque = m_verticalInput * -motorForce;
+                frontRightW.motorTorque = m_verticalInput * -motorForce;
+            }
         }
 
 
@@ -179,6 +217,9 @@ public class CarControllerMerdo : MonoBehaviour
             backLeftW.brakeTorque = motorForce;
             backLeftW.motorTorque = 0;
             backRightW.motorTorque = 0;
+            Time.timeScale = 0.5f;
+            Time.fixedDeltaTime = Time.timeScale * 0.02f;
+           
 
 
 
@@ -198,6 +239,8 @@ public class CarControllerMerdo : MonoBehaviour
             
             backRightW.brakeTorque = 0;
             backLeftW.brakeTorque = 0;
+            Time.timeScale = 1;
+            Time.fixedDeltaTime = delta;
             handbrake = false;
 
 
@@ -257,6 +300,21 @@ public class CarControllerMerdo : MonoBehaviour
         frontLeftT.localEulerAngles = new Vector3(frontLeftT.localEulerAngles.x, frontLeftW.steerAngle - frontLeftT.localEulerAngles.z, frontLeftT.localEulerAngles.z);
         frontRightT.localEulerAngles = new Vector3(frontRightT.localEulerAngles.x, 180 + (frontRightW.steerAngle - frontRightT.localEulerAngles.z), frontRightT.localEulerAngles.z);
 
+    }
+    public void DecelarationSpeed()
+    {
+        if (Input.GetButton("Vertical") == false)
+        {
+            backLeftW.brakeTorque = decelarationSpeed;
+            backRightW.brakeTorque = decelarationSpeed;
+            ds = true;
+        }
+        else if (ds)
+        {
+            backLeftW.brakeTorque = 0;
+            backRightW.brakeTorque = 0;
+            ds = false;
+        }
     }
 }
 

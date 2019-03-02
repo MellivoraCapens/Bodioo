@@ -22028,6 +22028,8 @@ MonoBehaviour:
   nos1: {fileID: 1382354117}
   nos2: {fileID: 1974626389}
   temp: {fileID: 0}
+  decelarationSpeed: 30
+  topSpeed: 250
 --- !u!1 &491781673
 GameObject:
   m_ObjectHideFlags: 0
@@ -28967,7 +28969,7 @@ Camera:
     serializedVersion: 2
     x: 0
     y: 0
-    width: 0.5
+    width: 10.5
     height: 1
   near clip plane: 0.3
   far clip plane: 1000
